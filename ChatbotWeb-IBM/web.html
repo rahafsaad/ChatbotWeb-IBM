@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- This simple code shows the basic movements of the robot -->
+<html>
+<head>
+<title>Control Panel</title>
+<style type="text/css">
+body { background-color: #f2f2f2; margin-top:300px;  text-align:center;}
+.b { border-radius: 8px; width: 100px;  color: black; background-color: white; border: 2px solid #ADD8E6;}
+.b:hover {  cursor:pointer;  background-color: #ADD8E6; color: white; }
+.s {cursor: not-allowed; border-radius: 8px; width: 70px; color: white; background-color: red; border: 2px solid  #f2f2f2;}
+.i {position: absolute; top: 120px; left: 680px;}
+.f {position: absolute; top: 70px; left: 680px; }
+.l { position: absolute; top: 120px; left: 630px;}
+.r { position: absolute; top: 120px; left: 730px;}
+.bc {position: absolute; top: 170px; left: 680px;}
+
+</style>
+</head>
+<body>
+
+<img id="i1" src="robot.png" class="i" height="90px" width="90px"> 
+<p><input type="button" id="f" class="b" value="Forwards" > </p>
+<p><input type="button" id="l" class="b" value="Left" > 
+<input type="button"  class="s" value="STOP" > <!-- Disabled for now only -->
+<input type="button" id="r" class="b" value="Right" > </p>
+<p><input type="button" id="b" class="b" value="Backwards" > </p>
+<script>
+document.getElementById("f").onclick = Forward;
+document.getElementById("l").onclick = Left;
+document.getElementById("r").onclick = Right;
+document.getElementById("b").onclick = Backward;
+function Forward() {
+  document.getElementById("i1").className = "f" ;}
+function Left() {
+  document.getElementById("i1").className = "l" ;
+}
+function Right() {
+  document.getElementById("i1").className = "r" ;
+}
+function Backward() {
+  document.getElementById("i1").className = "bc" ;
+}
+
+  
+
+
+  window.watsonAssistantChatOptions = {
+      integrationID: "bee0038b-5e31-4c3c-8856-79463ab96171", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "c42dd8c2-edbf-48b6-92df-00efe2a78fde", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+    document.head.appendChild(t);
+  });
+</script>
+
+</script>
+
+</body>
+</html>
